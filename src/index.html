@@ -1,9 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 </head>
-<body>
+<style>
+  .text {
+    display: none;
+  }
+</style>
+
+<body onload="handleOnLoad()">
   <div id="cesiumContainer"></div>
+  <div id="dialog1" class="dialog dialog1">
+    <div class="flex-y flex-space-between">
+      <div id="Close" class="close" onclick="onclose2()">关闭X</div>
+      <div class="left">
+        <div>
+          姓名：
+        </div>
+        <div>
+          <a href="http://192.168.1.243:75/#/personInformation">姓名：司空莱</a>
+        </div>
+        <div>
+          工号：50000373
+        </div>
+        <div>
+          身份：员工
+        </div>
+        <div>
+          工作单位：
+        </div>
+        <div>岗位：工程师</div>
+        <div>地图显示图标：</div>
+        <div>政治面貌：</div>
+        <div>证件号码：</div>
+        <div>办公电话：</div>
+        <div>最高学位：</div>
+        <div>专业：</div>
+        <div>从业所在地：</div>
+        <div>邮编：</div>
+      </div>
+      <div class="right">
+        <div>
+          照片：
+        </div>
+        <div>
+          部门：公共科
+        </div>
+        <div>
+          工种：
+        </div>
+        <div>
+          出生年月：
+        </div>
+        <div>
+          性别：
+        </div>
+        <div>
+          证件类型：
+        </div>
+        <div>
+          联系电话：
+        </div>
+        <div>
+          邮编：
+        </div>
+        <div>
+          学历：
+        </div>
+        <div>
+          最后毕业院校：
+        </div>
+        <div>
+          户籍所在地：
+        </div>
+        <div>
+          通讯地址：
+        </div>
+        <div>
+          资质证书：注册安全工程师
+        </div>
+        <div>
+          证书编号：321002197903073316
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  </div>
+  <div id="dialog2" class="dialog dialog2">弹窗2</div>
+  <div id="dialog3" class="dialog dialog3">弹窗3</div>
+  <div id="dialog4" class="dialog dialog4">弹窗4</div>
+  <div id="cover">
+    <div class="title">企业安全生产信息化管理系统</div>
+    <div id="pie"></div>
+    <div id="bar"></div>
+    <div id="chart"></div>
+    <div id="table">
+      <table>
+        <tr>
+          <th>序号</th>
+          <th>隐患名称</th>
+          <th>责任部门</th>
+          <th>隐患级别</th>
+          <th>完成期限</th>
+          <th>状态</th>
+        </tr>
+        <tr style="background-color: #d24c35">
+          <td>1</td>
+          <td>0820重大</td>
+          <td>生产一厂</td>
+          <td>重大隐患</td>
+          <td>2021-11-09</td>
+          <td>整改中</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0810一般</td>
+          <td>生产一厂</td>
+          <td>一般隐患</td>
+          <td>2021-11-06</td>
+          <td>整改中</td>
+        </tr>
+        <tr style="background-color: #d24c35">
+          <td>3</td>
+          <td>00151105</td>
+          <td>工程料</td>
+          <td>重大隐患</td>
+          <td>2021-11-04</td>
+          <td>整改中</td>
+        </tr>
+        <tr style="background-color: #d4b720">
+          <td>4</td>
+          <td>1104重大</td>
+          <td>营销科</td>
+          <td>重大隐患</td>
+          <td></td>
+          <td>整改验收中</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>323隐患</td>
+          <td>行政人力资源</td>
+          <td>一般隐患</td>
+          <td></td>
+          <td>隐患审核</td>
+        </tr>
+      </table>
+    </div>
+    <div class="text title1">各级别历史隐患分布情况</div>
+    <div class="text title2">各部门未整改隐患统计</div>
+    <div class="text title3">近三个月各部门历史隐患数据</div>
+    <div class="text title4">待整改隐患清单</div>
+    <div class="danger1" onclick="showDialog4()"></div>
+    <div class="danger2" onclick="showDialog3()"></div>
+    <div class="danger2 second" onclick="showDialog2()"></div>
+    <div class="worker" onclick="showDialog1()"></div>
+    <div class="worker second" onclick="showDialog1()"></div>
+    <div class="setting" onclick="jumpto()"></div>
+    <div class="setting second" onclick="jumpto()"></div>
+  </div>
 </body>
+<script>
+  function handleOnLoad() {
+    const COVER = document.getElementById("cover");
+    const texts = document.getElementsByClassName("text");
+    setTimeout(function () {
+      for (var i = 0; i < texts.length; i++) {
+        texts[i].style.display = "block";
+      }
+      COVER.style.display = "block";
+    }, 4000);
+  }
+  const dialog1 = document.getElementById("dialog1");
+  function showDialog1() {
+    dialog1.style.display = "block";
+  }
+  const dialog2 = document.getElementById("dialog2");
+  function showDialog2() {
+    dialog2.style.display = "block";
+    dialog2.innerText = "【0820重大】生产一厂 重大隐患 2021-11-09 整改中"
+    // setTimeout(function () {
+    //   dialog2.style.display = "none";
+    // }, 2000);
+  }
+  const dialog3 = document.getElementById("dialog3");
+  function showDialog3() {
+    dialog3.style.display = "block";
+    dialog3.innerText = "【00151105】工程料 重大隐患 2021-11-04 整改中"
+    setTimeout(function () {
+      dialog3.style.display = "none";
+    }, 2000);
+  }
+  const dialog4 = document.getElementById("dialog4");
+  function showDialog4() {
+    dialog4.style.display = "block";
+    dialog4.innerText = "【1104重大】营销科 重大隐患 整改验收中"
+    // setTimeout(function () {
+    //   dialog4.style.display = "none";
+    // }, 2000);
+  }
+  function jumpto() {
+    window.open("http://192.168.1.243:75/#/equipmentArchives");
+  }
+
+
+  function onclose2(){
+    dialog1.style.display = "none";
+  }
+
+
+</script>
+
 </html>
